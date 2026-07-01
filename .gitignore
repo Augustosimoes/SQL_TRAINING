@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+postgres/seed/data/*.csv
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,35 @@
+services:
+  oracle-xe:
+    # 21-slim: smallest image, fastest pull, everything this lab needs.
+    # Swap for gvenzl/oracle-xe:21 (regular) if you hit a missing-component
+    # error from an advanced feature -- see oracle/README-oracle.md.
+    image: gvenzl/oracle-xe:21-slim
+    container_name: sql-practice-oracle
+    restart: unless-stopped
+    ports:
+      - "${ORACLE_PORT:-1521}:1521"
+    environment:
+      # SYS / SYSTEM password
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD:-OraclePractice2024!}
+      # Do NOT set ORACLE_DATABASE here -- it would create a *new* pluggable
+      # database instead of using the already-present XEPDB1, adding minutes
+      # to first startup for no benefit in this lab.
+      APP_USER: sqlstudent
+      APP_USER_PASSWORD: ${ORACLE_PASSWORD:-OraclePractice2024!}
+    volumes:
+      - oracle_xe_data:/opt/oracle/oradata
+      # Runs once, on first container init, as SYS -- each script switches
+      # container + current_schema to SQLSTUDENT internally (see the .sql
+      # files themselves for why).
+      - ./oracle/init:/container-entrypoint-initdb.d:ro
+    shm_size: 1g
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 15s
+      timeout: 10s
+      retries: 30
+      start_period: 180s
+
+volumes:
+  oracle_xe_data:
+    name: oracle_xe_data

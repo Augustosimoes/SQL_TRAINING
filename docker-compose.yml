@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: sql-practice-postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-retail_dw}
+      POSTGRES_USER: ${POSTGRES_USER:-sqlstudent}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-SqlPractice2024!}
+    volumes:
+      - sql_practice_pgdata:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+      - ./postgres/seed:/seed:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sqlstudent} -d ${POSTGRES_DB:-retail_dw}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  sql_practice_pgdata:
+    name: sql_practice_pgdata
