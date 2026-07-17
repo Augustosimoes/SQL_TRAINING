@@ -9,7 +9,8 @@ interviews, and learning.
 backend, 2 GB+ RAM available to Docker), Python 3.11+
 
 ```powershell
-cd C:\Users\ricar\Projects\sql-practice-lab
+git clone https://github.com/Augustosimoes/SQL_TRAINING.git
+cd SQL_TRAINING
 copy .env.example .env
 .\scripts\setup-oracle.ps1
 ```
@@ -229,4 +230,4 @@ install the WSL2 kernel update from Microsoft.
 
 ## License
 
-MIT -- use freely for learning and interview preparation.
+[MIT](LICENSE) -- use freely for learning and interview preparation.

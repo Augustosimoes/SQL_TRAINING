@@ -6,7 +6,8 @@ full retail dataset (1,000+ customers, 500+ products, 5,000+ orders, and related
 ## Quick Start
 
 ```powershell
-cd C:\Users\ricar\Projects\sql-practice-lab
+git clone https://github.com/Augustosimoes/SQL_TRAINING.git
+cd SQL_TRAINING
 copy .env.example .env
 .\scripts\setup-oracle.ps1
 ```
