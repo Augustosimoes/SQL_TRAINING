@@ -11,7 +11,7 @@ if [[ ! -f .env ]]; then
     cp .env.example .env
 fi
 
-pip install -q -r postgres/seed/requirements.txt
-python3 postgres/seed/generate_data.py
+pip install -q -r seed/requirements.txt
+python3 seed/generate_data.py
 
 echo "Done."

@@ -24,9 +24,9 @@ if (-not $Python) {
 }
 
 Write-Host "Installing Python dependencies..."
-& $Python.Source -m pip install -q -r "postgres\seed\requirements.txt"
+& $Python.Source -m pip install -q -r "seed\requirements.txt"
 
 Write-Host "Generating CSV files..."
-& $Python.Source "postgres\seed\generate_data.py"
+& $Python.Source "seed\generate_data.py"
 
 Write-Host "Seed data generation complete." -ForegroundColor Green

@@ -56,7 +56,7 @@ if (-not (Test-Path ".git")) {
 git add -A
 $pending = git status --porcelain
 if ($pending) {
-    git commit -m "SQL practice lab: Oracle XE (primary) + PostgreSQL alternative"
+    git commit -m "SQL practice lab: Oracle XE"
     Write-Host "Committed changes." -ForegroundColor Green
 } else {
     Write-Host "Nothing new to commit."

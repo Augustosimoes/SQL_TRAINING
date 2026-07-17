@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-postgres/seed/data/*.csv
+seed/data/*.csv
 *.log
 .DS_Store
 Thumbs.db

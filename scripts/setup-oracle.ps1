@@ -8,7 +8,7 @@ Write-Host "==> SQL Practice Lab - Oracle XE Setup" -ForegroundColor Cyan
 
 & "$PSScriptRoot\generate-seed.ps1"
 
-if (-not (Test-Path "postgres\seed\data\customers.csv")) {
+if (-not (Test-Path "seed\data\customers.csv")) {
     throw "Seed CSV files not found. Generation may have failed."
 }
 

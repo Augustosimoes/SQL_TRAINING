@@ -1,9 +1,7 @@
-# Oracle XE (Primary Database)
+# Oracle XE
 
-This lab uses **Oracle Database Express Edition (XE) 21c** running in Docker as the primary
-environment, loaded with the full retail dataset (1,000+ customers, 500+ products, 5,000+
-orders, and related tables). PostgreSQL is kept as a lighter, faster alternative -- see the
-root [README.md](../README.md) for the comparison.
+This lab uses **Oracle Database Express Edition (XE) 21c** running in Docker, loaded with the
+full retail dataset (1,000+ customers, 500+ products, 5,000+ orders, and related tables).
 
 ## Quick Start
 
@@ -14,7 +12,7 @@ copy .env.example .env
 ```
 
 This will:
-1. Generate the shared seed CSVs (same generator used by the PostgreSQL environment)
+1. Generate the seed CSVs (`seed/generate_data.py`)
 2. Start Oracle XE in Docker (first boot takes **2-5 minutes** -- Oracle has to expand its
    pre-built database files)
 3. Auto-run `oracle/init/01_schema.sql`, `02_dimensions.sql`, `03_data_quality.sql` on first

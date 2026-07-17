@@ -9,7 +9,7 @@ echo "==> SQL Practice Lab - Oracle XE Setup"
 
 bash "$SCRIPT_DIR/generate-seed.sh"
 
-if [[ ! -f postgres/seed/data/customers.csv ]]; then
+if [[ ! -f seed/data/customers.csv ]]; then
     echo "ERROR: Seed CSV files not found."
     exit 1
 fi
